@@ -1,10 +1,11 @@
-#include <format>
 #include <iostream>
+#include <format>
 
 #include "faker-cxx/Datatype.h"
 #include "faker-cxx/Date.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/String.h"
+#include "faker-cxx/Person.h"
 
 int main()
 {
@@ -17,11 +18,12 @@ int main()
     const auto verificationCode = faker::String::numeric(8); // 56910620
     const auto createdAt = faker::Date::pastDate();          // 2023-03-11T08:33:34Z
     const auto updatedAt = faker::Date::recentDate();        // 2023-07-19T22:59:19Z
+    const auto name = faker::Person::fullName();                 // Stuart Boyle
 
     std::cout << std::format("id: {}, email: {}, password: {}, nickname: {}, active: {}, emailVerified: {}. "
-                             "verificationCode: {}, createdAt: {}, updatedAt: {}",
+                             "verificationCode: {}, createdAt: {}, updatedAt: {}, name: {}",
                              id, email, password, nickname, active, emailVerified, verificationCode, createdAt,
-                             updatedAt);
+                             updatedAt, name);
 
     return 0;
 }
